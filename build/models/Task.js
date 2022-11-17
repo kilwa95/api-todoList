@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Task {
     constructor(id, title, description, completed) {
         this.id = id;
@@ -10,3 +11,4 @@ class Task {
         this.completed = !this.completed;
     }
 }
+exports.default = Task;
