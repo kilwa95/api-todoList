@@ -7,10 +7,6 @@ router.use(express.json());
 
 let tasks: Task[] = [];
 
-router.get("/", (req: Request, res: Response) => {
-  res.send("todo list");
-});
-
 router.get("/tasks", (req: Request, res: Response) => {
   res.status(200).json(tasks);
 });
