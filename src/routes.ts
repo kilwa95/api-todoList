@@ -13,7 +13,13 @@ router.get("/tasks", (req: Request, res: Response) => {
 
 router.post("/tasks", (req: Request, res: Response) => {
   const body = req.body;
-  const task: Task = new Task(uuidv4(), body.title, body.description, false);
+  const task: Task = new Task(
+    uuidv4(),
+    body.title,
+    body.description,
+    false,
+    new Date(Date.now())
+  );
   tasks.push(task);
   res.status(201).json(task);
 });
@@ -23,6 +29,7 @@ router.put("/tasks/:id", (req: Request, res: Response) => {
   const index: number = tasks.findIndex((obj) => obj.id == id);
   tasks[index].title = req.body.title;
   tasks[index].description = req.body.description;
+  tasks[index].lastUpdated = new Date(Date.now());
   const taskfound: any = tasks.find((obj) => obj.id == id);
 
   res.status(200).json(taskfound);
