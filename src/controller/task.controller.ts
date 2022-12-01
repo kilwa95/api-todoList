@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction, Router } from "express";
+import { Request, Response, Router } from "express";
 import Controller from "../interfaces/controller.interface";
 import TaskRepository from "../repository/task.repository";
 
